@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Секреты и локальные настройки
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+
+# Кэш и временные данные
+data/cache/
+data/raw/
+*.pickle
+*.pkl
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

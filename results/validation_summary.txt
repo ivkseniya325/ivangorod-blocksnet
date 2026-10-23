@@ -1,0 +1,41 @@
+                                             Проверка   OK                                                                            Подробности
+                                     Кварталы созданы True                                                                          129 кварталов
+                          Индексы кварталов уникальны True                                                                                       
+                                   Матрица квадратная True                                                                             (129, 129)
+                             Нет отрицательных времён True                                                                          минимум 0.000
+                                 Диагональ около нуля True                                                                      максимум 0.000000
+                           Население не отрицательное True                                                                       сумма 9,635 чел.
+                                      GSI не больше 1 True                                                                         максимум 0.351
+               Обеспеченность школами в диапазоне 0–1 True                                                                      от 0.000 до 1.000
+             Обеспеченность детсадами в диапазоне 0–1 True                                                                      от 0.000 до 1.000
+                  Вместимость школ из исходных данных True                                                                                       
+              Вместимость детсадов из исходных данных True                                                                                       
+                                   Школы агрегированы True                                                                                 2 школ
+                            Детские сады агрегированы True                                                                                3 садов
+                                    Сервисы посчитаны True                                                                           276 объектов
+                     Сервисы сферы «social» посчитаны True                                                                            80 объектов
+                Доступность сферы «social» рассчитана True                                                                        медиана 5.4 мин
+                   Сервисы сферы «consumer» посчитаны True                                                                            89 объектов
+              Доступность сферы «consumer» рассчитана True                                                                        медиана 6.2 мин
+           Доступность по группам сервисов рассчитана True                                                                               15 групп
+              Land use назначен большинству кварталов True                                                                        без land use: 0
+                    Файл существует: boundary.geojson True              D:\магистратура\3_ТИИ\ivangorod-blocksnet\data\processed\boundary.geojson
+                      Файл существует: blocks.geojson True                D:\магистратура\3_ТИИ\ivangorod-blocksnet\data\processed\blocks.geojson
+             Файл существует: blocks_land_use.geojson True       D:\магистратура\3_ТИИ\ivangorod-blocksnet\data\processed\blocks_land_use.geojson
+            Файл существует: buildings_blocks.geojson True      D:\магистратура\3_ТИИ\ivangorod-blocksnet\data\processed\buildings_blocks.geojson
+              Файл существует: schools_blocks.geojson True        D:\магистратура\3_ТИИ\ivangorod-blocksnet\data\processed\schools_blocks.geojson
+        Файл существует: kindergartens_blocks.geojson True  D:\магистратура\3_ТИИ\ivangorod-blocksnet\data\processed\kindergartens_blocks.geojson
+                Файл существует: services_all.geojson True          D:\магистратура\3_ТИИ\ivangorod-blocksnet\data\processed\services_all.geojson
+                   Файл существует: graph_walk.pickle True             D:\магистратура\3_ТИИ\ivangorod-blocksnet\data\processed\graph_walk.pickle
+   Файл существует: accessibility_matrix_walk_min.csv True    D:\магистратура\3_ТИИ\ivangorod-blocksnet\results\accessibility_matrix_walk_min.csv
+      Файл существует: accessibility_summary_walk.csv True       D:\магистратура\3_ТИИ\ivangorod-blocksnet\results\accessibility_summary_walk.csv
+     Файл существует: service_group_accessibility.csv True      D:\магистратура\3_ТИИ\ivangorod-blocksnet\results\service_group_accessibility.csv
+Файл существует: service_group_accessibility_wide.csv True D:\магистратура\3_ТИИ\ivangorod-blocksnet\results\service_group_accessibility_wide.csv
+           Файл существует: service_group_summary.csv True            D:\магистратура\3_ТИИ\ivangorod-blocksnet\results\service_group_summary.csv
+               Файл существует: services_by_group.csv True                D:\магистратура\3_ТИИ\ivangorod-blocksnet\results\services_by_group.csv
+              Файл существует: blocks_metrics.geojson True               D:\магистратура\3_ТИИ\ivangorod-blocksnet\results\blocks_metrics.geojson
+                  Файл существует: blocks_metrics.csv True                   D:\магистратура\3_ТИИ\ivangorod-blocksnet\results\blocks_metrics.csv
+                      CRS EPSG:4326: boundary.geojson True                                                                              EPSG:4326
+                        CRS EPSG:4326: blocks.geojson True                                                                              EPSG:4326
+               CRS EPSG:4326: blocks_land_use.geojson True                                                                              EPSG:4326
+                CRS EPSG:4326: blocks_metrics.geojson True                                                                              EPSG:4326

@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "hydroelectric_pp",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_name": "гидроэлектростанция", "capacity": null, "service_id": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 28.2117089, 59.3678637 ], [ 28.2113429, 59.3682538 ], [ 28.2100051, 59.3679238 ], [ 28.2103747, 59.3675264 ], [ 28.2097781, 59.3673755 ], [ 28.2098678, 59.367288 ], [ 28.2117995, 59.3677671 ], [ 28.2117089, 59.3678637 ] ] ] } }
+]
+}

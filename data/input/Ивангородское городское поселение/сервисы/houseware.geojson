@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "houseware",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 92, "service_name": "хозяйственные товары", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.221295202768957, 59.376706385635039 ] } },
+{ "type": "Feature", "properties": { "service_id": 92, "service_name": "хозяйственные товары", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.223270720437622, 59.376020773735476 ] } },
+{ "type": "Feature", "properties": { "service_id": 92, "service_name": "хозяйственные товары", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.224057085532202, 59.377223426325884 ] } },
+{ "type": "Feature", "properties": { "service_id": 92, "service_name": "хозяйственные товары", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.22446421072301, 59.377246153208361 ] } }
+]
+}

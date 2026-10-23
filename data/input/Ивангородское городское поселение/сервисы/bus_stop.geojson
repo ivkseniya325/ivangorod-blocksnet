@@ -1,0 +1,22 @@
+{
+"type": "FeatureCollection",
+"name": "bus_stop",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.227849, 59.3766921 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2164219, 59.3680066 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2167895, 59.3682771 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2173863, 59.370417 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2178098, 59.3709095 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2264235, 59.376835 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2194355, 59.375759 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2085489, 59.3612463 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2071312, 59.3607543 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2028745, 59.3560816 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2189578, 59.3751707 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2337207, 59.3681879 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2146126, 59.3630818 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2152241, 59.3639456 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "остановка наземного общественного транспорта", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2054851, 59.392761 ] } }
+]
+}

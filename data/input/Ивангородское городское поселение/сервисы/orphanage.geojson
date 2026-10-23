@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "orphanage",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 46, "service_name": "детский дом-интернат", "capacity": 56 }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.228921164131322, 59.381544370519613 ] ] } }
+]
+}

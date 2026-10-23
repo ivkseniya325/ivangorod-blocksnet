@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "food_industry",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "объект пищевой промышленности", "capacity": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 28.2116043, 59.3849791 ], [ 28.2133385, 59.385354 ], [ 28.2133527, 59.3856136 ], [ 28.2138623, 59.3857397 ], [ 28.214379, 59.3845177 ], [ 28.214195, 59.3831803 ], [ 28.2123122, 59.3829604 ], [ 28.2116043, 59.3849791 ] ] ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "объект пищевой промышленности", "capacity": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 28.2148561, 59.3843751 ], [ 28.217395, 59.3842104 ], [ 28.2170921, 59.3829999 ], [ 28.2145533, 59.3831647 ], [ 28.2148561, 59.3843751 ] ] ] } }
+]
+}

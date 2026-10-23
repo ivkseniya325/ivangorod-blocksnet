@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "bank",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 100, "service_name": "отделение банка", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.218536762848942, 59.372177180679287 ] } },
+{ "type": "Feature", "properties": { "service_id": 100, "service_name": "отделение банка", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2189944, 59.3758611 ] } }
+]
+}

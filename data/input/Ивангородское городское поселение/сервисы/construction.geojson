@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "construction",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "объект строительной промышленности ", "capacity": null }, "geometry": null },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "объект строительной промышленности ", "capacity": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 28.2085266, 59.3563537 ], [ 28.2079773, 59.3556712 ], [ 28.2081833, 59.3556318 ], [ 28.2087412, 59.3563099 ], [ 28.2085266, 59.3563537 ] ] ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "объект строительной промышленности ", "capacity": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 28.2074727, 59.3560012 ], [ 28.2077044, 59.3559531 ], [ 28.2081765, 59.3565437 ], [ 28.2072409, 59.3567405 ], [ 28.2067603, 59.3561499 ], [ 28.2070092, 59.3560974 ], [ 28.2073954, 59.356583 ], [ 28.2078589, 59.3564824 ], [ 28.2074727, 59.3560012 ] ] ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "объект строительной промышленности ", "capacity": null }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 28.220485, 59.3648917 ], [ 28.2189467, 59.3610329 ], [ 28.2206575, 59.3608759 ], [ 28.2213993, 59.3624338 ], [ 28.222918, 59.3623481 ], [ 28.2236221, 59.3643908 ], [ 28.2228274, 59.3645187 ], [ 28.2228065, 59.3649201 ], [ 28.221231, 59.3649983 ], [ 28.220485, 59.3648917 ] ] ] } }
+]
+}

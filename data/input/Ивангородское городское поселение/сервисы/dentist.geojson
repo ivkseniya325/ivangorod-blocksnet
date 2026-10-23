@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "dentist",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 30, "service_name": "стоматологическая клиника", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.207322048919966, 59.361187272510215 ] ] } },
+{ "type": "Feature", "properties": { "service_id": 30, "service_name": "стоматологическая клиника", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.218305717415127, 59.373959817321932 ] ] } }
+]
+}

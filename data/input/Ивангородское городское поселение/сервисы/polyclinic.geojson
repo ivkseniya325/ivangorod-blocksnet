@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "polyclinic",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 28, "service_name": "поликлиника", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.206660242675582, 59.360768341911644 ] ] } },
+{ "type": "Feature", "properties": { "service_id": 28, "service_name": "поликлиника детская", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.206010054032635, 59.36053877744704 ] ] } }
+]
+}

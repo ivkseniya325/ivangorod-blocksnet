@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "supermarket",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 89, "service_name": "супермаркет", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2288243, 59.3772 ] } },
+{ "type": "Feature", "properties": { "service_id": 89, "service_name": "супермаркет", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2212785, 59.3750135 ] } },
+{ "type": "Feature", "properties": { "service_id": 89, "service_name": "супермаркет", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2240982, 59.3772016 ] } },
+{ "type": "Feature", "properties": { "service_id": 89, "service_name": "супермаркет", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2169082, 59.3760145 ] } },
+{ "type": "Feature", "properties": { "service_id": 89, "service_name": "супермаркет", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2074977, 59.3582297 ] } },
+{ "type": "Feature", "properties": { "service_id": 89, "service_name": "супермаркет", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2177695, 59.3700307 ] } },
+{ "type": "Feature", "properties": { "service_id": 89, "service_name": "супермаркет", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.2077314, 59.3584593 ] } }
+]
+}

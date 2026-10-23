@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "wastewater_plant",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": null, "capacity": null, "service_name": "очистное сооружение" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 28.205877797305522, 59.406131161932585 ], [ 28.207392784572949, 59.40614804627257 ], [ 28.207470192681509, 59.404695962275873 ], [ 28.205767214293303, 59.404729732378044 ], [ 28.205877797305522, 59.406131161932585 ] ] ] } }
+]
+}

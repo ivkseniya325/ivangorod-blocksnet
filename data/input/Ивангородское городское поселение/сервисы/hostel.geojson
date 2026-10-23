@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "hostel",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": "111", "service_name": "хостел", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 3141200.339628026820719, 8260794.49488131981343 ] ] } },
+{ "type": "Feature", "properties": { "service_id": "111", "service_name": "хостел", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 3140123.629866467788815, 8258017.206544251181185 ] ] } }
+]
+}

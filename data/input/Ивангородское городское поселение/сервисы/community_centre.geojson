@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "community_centre",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 49, "service_name": "дворец культуры", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.219717683744722, 59.375277879362955 ] } }
+]
+}

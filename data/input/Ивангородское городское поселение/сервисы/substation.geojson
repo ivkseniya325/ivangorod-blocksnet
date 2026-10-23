@@ -1,0 +1,30 @@
+{
+"type": "FeatureCollection",
+"name": "substation",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.216834492559215, 59.366149459499354 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.214376127855925, 59.367122187327304 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.215079547540729, 59.370586610379036 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.224083091772616, 59.370900350855962 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.20906609886789, 59.362252712439648 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.214549286517848, 59.384996322404511 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.228670669258381, 59.38074924683081 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.204779903243388, 59.357486048693545 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.226940365564484, 59.377561538472854 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.230705183386196, 59.379686800584722 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.223490165040385, 59.377545943020742 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.215177877731328, 59.373945009399506 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.210409642548267, 59.362141048814642 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.218042872763093, 59.375017684409556 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.217851818375202, 59.374935598904848 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.201644480990812, 59.361076730557684 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.223483082032477, 59.375369955576041 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.214309934174988, 59.380267497872076 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.205964491423352, 59.356144147857059 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.225135965666258, 59.380082630002583 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.214770557073862, 59.3663417675508 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.221748637158175, 59.373474900571708 ] ] } },
+{ "type": "Feature", "properties": { "service_name": "трансформаторная подстанция", "service_id": null, "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.218678423980098, 59.370568419880456 ] ] } }
+]
+}

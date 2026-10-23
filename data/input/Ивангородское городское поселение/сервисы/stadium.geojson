@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "stadium",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 59, "service_name": "стадион", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.221241860425312, 59.374439581203802 ] } },
+{ "type": "Feature", "properties": { "service_id": 59, "service_name": "стадион", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.226789378137362, 59.375741327399325 ] } },
+{ "type": "Feature", "properties": { "service_id": 59, "service_name": "стадион", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.20937382262457, 59.362987693878878 ] } },
+{ "type": "Feature", "properties": { "service_id": 59, "service_name": "стадион", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.201827590363202, 59.357364013831642 ] } },
+{ "type": "Feature", "properties": { "service_id": 59, "service_name": "стадион", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.216957701736209, 59.371512905440646 ] } },
+{ "type": "Feature", "properties": { "service_id": 59, "service_name": "стадион", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.216808014258465, 59.371174918968499 ] } },
+{ "type": "Feature", "properties": { "service_id": 59, "service_name": "стадион", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.223182097321605, 59.381987263231153 ] } }
+]
+}

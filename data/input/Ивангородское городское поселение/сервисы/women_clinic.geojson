@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "women_clinic",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 32, "service_name": "женская консультация", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.20783661114239, 59.361340210053314 ] ] } }
+]
+}

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ivangorod-blocksnet"
+version = "0.1.0"
+description = "Учебное исследование Ивангородского городского поселения с BlocksNet"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "blocksnet[ipynb]==1.0.0a9",
+    "iduedu==0.4.1",
+    "geopandas==1.2.0",
+    "osmnx==2.1.1",
+    "matplotlib==3.11.2",
+    "folium==0.14.0",
+    "mapclassify==2.6.1",
+]
+
+[project.optional-dependencies]
+notebook = [
+    "jupyterlab>=4.0",
+    "ipykernel>=6.29",
+    "nbformat>=5.10",
+    "nbclient>=0.10",
+]
+
+[tool.setuptools]
+py-modules = []

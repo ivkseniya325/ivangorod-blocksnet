@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "veterinary",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 107, "service_name": "ветеринарная клиника", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.219464103915783, 59.371068195791302 ] } }
+]
+}

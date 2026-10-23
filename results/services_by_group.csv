@@ -1,0 +1,16 @@
+service_group,service_sphere,objects,capacity_sum
+общепит,consumer,7,0.0
+торговля,consumer,34,0.0
+транспорт,consumer,30,0.0
+туризм,consumer,6,0.0
+услуги,consumer,14,0.0
+инфраструктура,other,50,0.0
+природа,other,31,0.0
+промышленность,other,4,0.0
+прочее,other,4,0.0
+специальное,other,20,0.0
+здравоохранение,social,18,0.0
+культура,social,21,0.0
+образование,social,10,1622.0
+рекреация,social,30,0.0
+социальная сфера,social,1,56.0

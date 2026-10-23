@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "university",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 27, "service_name": "учреждения высшего профессионального образования", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.206614340448095, 59.35544452118458 ] ] } }
+]
+}

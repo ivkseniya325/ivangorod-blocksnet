@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "religion",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 114, "service_name": "религиозный объект", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.194051206078864, 59.351464299578645 ] ] } },
+{ "type": "Feature", "properties": { "service_id": 114, "service_name": "религиозный объект", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.223869105360979, 59.373824200242154 ] ] } },
+{ "type": "Feature", "properties": { "service_id": 114, "service_name": "религиозный объект", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.206909765943667, 59.374614681030351 ] ] } },
+{ "type": "Feature", "properties": { "service_id": 114, "service_name": "религиозный объект", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.207134556940343, 59.374720913453025 ] ] } }
+]
+}

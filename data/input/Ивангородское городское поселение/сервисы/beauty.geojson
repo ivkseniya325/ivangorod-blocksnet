@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "beauty",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 105, "service_name": "салон красоты", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.218708, 59.375327 ] } },
+{ "type": "Feature", "properties": { "service_id": 105, "service_name": "салон красоты", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.222102, 59.37589 ] } },
+{ "type": "Feature", "properties": { "service_id": 105, "service_name": "салон красоты", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.225575, 59.377044 ] } },
+{ "type": "Feature", "properties": { "service_id": 105, "service_name": "салон красоты", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.227087, 59.378036 ] } }
+]
+}

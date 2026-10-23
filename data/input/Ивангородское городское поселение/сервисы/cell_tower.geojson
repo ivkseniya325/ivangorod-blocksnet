@@ -1,0 +1,27 @@
+{
+"type": "FeatureCollection",
+"name": "cell_tower",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.222113863683255, 59.375878480468486 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.258255853126261, 59.420906093652206 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.214534877172174, 59.383293492525723 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.232410831563897, 59.38113620678768 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.222085793362879, 59.375867632853755 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.208240833776451, 59.360709140260404 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.217060722038202, 59.37549289494045 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.208327948563966, 59.360611467941915 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.217251406628595, 59.375903627198539 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.232400382896991, 59.38112733958544 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.258249889247672, 59.420903929796907 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.258298093326125, 59.42084120455101 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.217248395114154, 59.375895102083589 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.258253402972979, 59.420900407082186 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.21480865935553, 59.383226004913119 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.232458846186116, 59.381145084993868 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.222130011768389, 59.375894510182619 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.214263079524422, 59.365904300370005 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.208474069940049, 59.362810793553876 ] } },
+{ "type": "Feature", "properties": { "service_id": null, "service_name": "вышка связи", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.208308179349196, 59.357258899564407 ] } }
+]
+}

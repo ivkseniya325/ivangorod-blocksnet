@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "sport_centre",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 68, "service_name": "спортивный зал", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.221865011599355, 59.374386896867385 ] } }
+]
+}

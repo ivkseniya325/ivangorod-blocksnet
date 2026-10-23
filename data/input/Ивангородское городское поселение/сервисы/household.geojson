@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "household",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_name": "бытовые услуги", "service_id": null, "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.224441274314334, 59.377206003108689 ] } },
+{ "type": "Feature", "properties": { "service_name": "бытовые услуги", "service_id": null, "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.225358260582013, 59.377241827995995 ] } },
+{ "type": "Feature", "properties": { "service_name": "бытовые услуги", "service_id": null, "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.223318190827364, 59.376132527289577 ] } },
+{ "type": "Feature", "properties": { "service_name": "бытовые услуги", "service_id": null, "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.229565370668869, 59.377407615892736 ] } }
+]
+}

@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "kindergartens",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "детский сад", "capacity": 205.0 }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.224844056723462, 59.378095429831198 ] ] } },
+{ "type": "Feature", "properties": { "name": "детский сад", "capacity": 200.0 }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.229872378746688, 59.379595240748117 ] ] } },
+{ "type": "Feature", "properties": { "name": "детский сад", "capacity": 137.0 }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.205353317643198, 59.357502077270198 ] ] } }
+]
+}

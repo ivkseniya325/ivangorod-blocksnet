@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "hotel",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": 110, "service_name": "гостиница", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.222400288638781, 59.375868409278752 ] ] } },
+{ "type": "Feature", "properties": { "service_id": 110, "service_name": "гостиница", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.215974984287772, 59.369801777185444 ] ] } },
+{ "type": "Feature", "properties": { "service_id": 110, "service_name": "гостиница", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.218235150471131, 59.3710521084706 ] ] } },
+{ "type": "Feature", "properties": { "service_id": 110, "service_name": "гостиница", "capacity": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 28.206061085663062, 59.357137118335821 ] ] } }
+]
+}

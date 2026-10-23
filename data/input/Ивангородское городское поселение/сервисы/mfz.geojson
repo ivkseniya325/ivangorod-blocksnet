@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "mfz",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "service_id": "47", "service_name": "многофункциональный центр предоставления государственных и муниципальных услуг", "capacity": null }, "geometry": { "type": "Point", "coordinates": [ 28.202241017006894, 59.358760751899112 ] } }
+]
+}
