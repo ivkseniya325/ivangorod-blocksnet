@@ -463,9 +463,7 @@ SERVICE_TYPE_LABELS = {
 }
 LAYER_DESCRIPTIONS = {
     "Обеспеченность школами": "Доля школьного спроса квартала, покрытая местами в школах в пределах 15 минут. 1 — спрос покрыт полностью, 0 — не покрыт.",
-    "Обеспеченность слабая": "Более мягкий вариант распределения школьных мест: показывает покрытие спроса без жёсткой конкуренции за места.",
     "Обеспеченность детсадами": "Доля спроса на детские сады, покрытая местами в пределах 7 минут. 1 — спрос покрыт полностью, 0 — не покрыт.",
-    "Обеспеченность детсадами (слабая)": "Более мягкий вариант распределения мест в детсадах: показывает покрытие спроса без жёсткой конкуренции.",
     "Социальные сервисы": "Число объектов социальной сферы в границах квартала. В сферу входят: образование, здравоохранение, социальная сфера, культура и рекреация.",
     "Плотность: социальные сервисы": "Сколько социальных объектов приходится на 1 м² площади квартала. Позволяет сравнивать кварталы разного размера.",
     "Разнообразие: социальные сервисы": "Индекс Шеннона по типам социальных объектов: 0 — один тип, чем выше, тем больше разных типов.",
@@ -706,12 +704,8 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
         return colormap
 
     numeric_provision = pd.to_numeric(frame.get("provision_strong"), errors="coerce").dropna()
-    numeric_provision_weak = pd.to_numeric(frame.get("provision_weak"), errors="coerce").dropna()
     numeric_kindergarten = pd.to_numeric(
         frame.get("kindergarten_provision_strong"), errors="coerce"
-    ).dropna()
-    numeric_kindergarten_weak = pd.to_numeric(
-        frame.get("kindergarten_provision_weak"), errors="coerce"
     ).dropna()
     service_count_field = f"services_{scope}_count"
     service_density_field = f"services_{scope}_density"
@@ -790,23 +784,6 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 True,
             )
         )
-    if scope == "social" and "provision_weak" in frame.columns and len(numeric_provision_weak):
-        add_choropleth(
-            "provision_weak",
-            "Обеспеченность слабая",
-            "Обеспеченность слабая, 0–1",
-            ["#d73027", "#fee08b", "#1a9850"],
-            0.0,
-            1.0,
-            show=False,
-        )
-        legends.append(
-            legend_card(
-                "Обеспеченность слабая",
-                gradient_legend(["#d73027", "#fee08b", "#1a9850"], 0.0, 1.0, "Обеспеченность слабая, 0–1"),
-                False,
-            )
-        )
     if scope == "social" and "kindergarten_provision_strong" in frame.columns and len(numeric_kindergarten):
         add_choropleth(
             "kindergarten_provision_strong",
@@ -821,23 +798,6 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
             legend_card(
                 "Обеспеченность детсадами",
                 gradient_legend(["#d73027", "#fee08b", "#1a9850"], 0.0, 1.0, "Обеспеченность детсадами, 0–1"),
-                False,
-            )
-        )
-    if scope == "social" and "kindergarten_provision_weak" in frame.columns and len(numeric_kindergarten_weak):
-        add_choropleth(
-            "kindergarten_provision_weak",
-            "Обеспеченность детсадами (слабая)",
-            "Обеспеченность детсадами слабая, 0–1",
-            ["#d73027", "#fee08b", "#1a9850"],
-            0.0,
-            1.0,
-            show=False,
-        )
-        legends.append(
-            legend_card(
-                "Обеспеченность детсадами (слабая)",
-                gradient_legend(["#d73027", "#fee08b", "#1a9850"], 0.0, 1.0, "Обеспеченность детсадами слабая, 0–1"),
                 False,
             )
         )
@@ -1728,7 +1688,7 @@ def main():
             {"Показатель": "Плотность: site_area, fsi, gsi, mxi, l, osr, share_living, share_non_living", "В ноутбуке": "раздел 11", "В дашборде": "карта общих показателей, график FSI/GSI, полная таблица"},
             {"Показатель": "Spacematrix: cluster, morphotype", "В ноутбуке": "раздел 11", "В дашборде": "карта общих показателей, график, таблица кластеров, полная таблица"},
             {"Показатель": "Strelka: morphotype", "В ноутбуке": "раздел 11", "В дашборде": "карта общих показателей, полная таблица"},
-            {"Показатель": "Обеспеченность: demand, capacity, demand_left, demand_within, demand_without, capacity_left, capacity_within, capacity_without, provision_strong, provision_weak", "В ноутбуке": "раздел 11", "В дашборде": "KPI, карты сильной/слабой обеспеченности и спроса, таблица, график"},
+            {"Показатель": "Обеспеченность: demand, capacity, demand_left, demand_within, demand_without, capacity_left, capacity_within, capacity_without, provision_strong, provision_weak", "В ноутбуке": "раздел 11", "В дашборде": "KPI, карты сильной обеспеченности и спроса, таблица, график"},
             {"Показатель": "Связи обеспечения: source, target, value", "В ноутбуке": "раздел 11", "В дашборде": "таблица связей"},
             {"Показатель": "Зональная доступность: area_accessibility", "В ноутбуке": "раздел 11", "В дашборде": "KPI, карта общих показателей, график, полная таблица"},
             {"Показатель": "Общие показатели кварталов: землепользование, население, плотность, этажность, смешанность, морфотипы, зональная доступность", "В ноутбуке": "разделы 5, 7, 11", "В дашборде": "отдельная карта общих показателей"},
@@ -1931,6 +1891,56 @@ h3 { margin-bottom: 6px; }
 .legend-row { display: flex; align-items: center; gap: 6px; margin: 2px 0; font-size: 12px; }
 .legend-note { margin: 7px 0 0; color: var(--muted); font-size: 11.5px; line-height: 1.4; }
 .swatch { width: 13px; height: 13px; display: inline-block; border-radius: 3px; border: 1px solid #999; flex: 0 0 auto; }
+.table-section { padding: 0; overflow: hidden; }
+.table-disclosure {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdff;
+  margin-top: 10px;
+}
+.table-section > .table-disclosure {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  margin-top: 0;
+}
+.table-disclosure > summary {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  user-select: none;
+}
+.table-section > .table-disclosure > summary { padding: 18px 20px; }
+.table-disclosure > summary::-webkit-details-marker { display: none; }
+.table-disclosure > summary::marker { content: ""; }
+.table-disclosure > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.disclosure-heading { flex: 1; min-width: 0; }
+.table-disclosure > summary h2,
+.table-disclosure > summary h3 { margin: 0; }
+.table-disclosure > summary h2::before,
+.table-disclosure > summary h3::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--accent);
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: 0.02em;
+  transform-origin: center;
+  transition: transform 0.15s ease;
+}
+.table-disclosure[open] > summary h2::before,
+.table-disclosure[open] > summary h3::before { transform: rotate(90deg); }
+.table-disclosure > summary .hint { margin: 4px 0 0; }
+.table-disclosure-body { padding: 0 14px 14px; }
+.table-section > .table-disclosure > .table-disclosure-body { padding: 0 20px 18px; }
+.table-disclosure[open] > summary { border-bottom: 1px solid var(--line); }
+.table-section > .table-disclosure[open] > summary { margin-bottom: 14px; }
+.table-disclosure-body .table-wrap { border: 0; border-radius: 0; }
+.table-disclosure-body input[type="search"] { margin-top: 0; }
 .table-wrap { overflow: auto; max-height: 620px; border: 1px solid var(--line); border-radius: 8px; }
 .data-table { border-collapse: collapse; width: 100%; font-size: 12px; background: white; }
 .data-table th, .data-table td { border: 1px solid var(--line); padding: 5px 7px; text-align: left; white-space: nowrap; }
@@ -1999,58 +2009,102 @@ code { background: #eef2f6; padding: 1px 4px; border-radius: 4px; }
     <h2>Графики</h2>
     <div class="charts">$charts</div>
   </section>
-  <section>
-    <h2>Полная таблица показателей</h2>
-    <p class="hint">Все $blocks_count кварталов и все показатели pipeline. Начните вводить номер квартала или значение, чтобы отфильтровать строки.</p>
-    <input id="tableSearch" type="search" placeholder="Фильтр по таблице: квартал, землепользование, морфотип...">
-    <div class="table-wrap">$table</div>
+  <section class="table-section">
+    <details class="table-disclosure">
+      <summary>
+        <span class="disclosure-heading">
+          <h2>Полная таблица показателей</h2>
+          <p class="hint">Все $blocks_count кварталов и все показатели pipeline. Начните вводить номер квартала или значение, чтобы отфильтровать строки.</p>
+        </span>
+      </summary>
+      <div class="table-disclosure-body">
+        <input id="tableSearch" type="search" placeholder="Фильтр по таблице: квартал, землепользование, морфотип...">
+        <div class="table-wrap">$table</div>
+      </div>
+    </details>
   </section>
   <section>
     <h2>Обеспеченность школами</h2>
-    <h3>По кварталам</h3>
-    <div class="table-wrap">$provision_table</div>
-    <h3>Связи «спрос → ёмкость»</h3>
-    <div class="table-wrap">$links_table</div>
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h3>По кварталам</h3></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$provision_table</div></div>
+    </details>
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h3>Связи «спрос → ёмкость»</h3></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$links_table</div></div>
+    </details>
   </section>
   <section>
     <h2>Обеспеченность детскими садами</h2>
-    <h3>По кварталам</h3>
-    <div class="table-wrap">$kindergarten_provision_table</div>
-    <h3>Связи «спрос → ёмкость»</h3>
-    <div class="table-wrap">$kindergarten_links_table</div>
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h3>По кварталам</h3></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$kindergarten_provision_table</div></div>
+    </details>
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h3>Связи «спрос → ёмкость»</h3></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$kindergarten_links_table</div></div>
+    </details>
   </section>
-  <section>
-    <h2>Морфотипы</h2>
-    <h3>Кластеры Spacematrix</h3>
-    <div class="table-wrap">$clusters_table</div>
+  <section class="table-section">
+    <details class="table-disclosure">
+      <summary>
+        <span class="disclosure-heading">
+          <h2>Морфотипы</h2>
+          <p class="hint">Кластеры Spacematrix по кварталам.</p>
+        </span>
+      </summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$clusters_table</div></div>
+    </details>
   </section>
-  <section>
-    <h2>Доступность</h2>
-    <h3>Сводка матрицы времени в пути</h3>
-    <div class="table-wrap">$accessibility_table</div>
-    <p class="hint">Полная матрица $matrix_size×$matrix_size сохранена в <code>results/accessibility_matrix_walk_min.csv</code>.</p>
+  <section class="table-section">
+    <details class="table-disclosure">
+      <summary>
+        <span class="disclosure-heading">
+          <h2>Доступность</h2>
+          <p class="hint">Сводка матрицы времени в пути. Полная матрица $matrix_size×$matrix_size сохранена в <code>results/accessibility_matrix_walk_min.csv</code>.</p>
+        </span>
+      </summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$accessibility_table</div></div>
+    </details>
   </section>
   <section>
     <h2>Школы и детские сады</h2>
-    <h3>Школы</h3>
-    <div class="table-wrap">$schools_table</div>
-    <h3>Детские сады</h3>
-    <div class="table-wrap">$kindergartens_table</div>
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h3>Школы</h3></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$schools_table</div></div>
+    </details>
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h3>Детские сады</h3></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$kindergartens_table</div></div>
+    </details>
   </section>
   <section>
     <h2>Доступность сервисов по группам</h2>
-    <p class="hint">Для каждого квартала рассчитано время до ближайшего объекта группы и число объектов в 15-минутной пешеходной зоне. Социальная и коммерческая сферы вынесены на отдельные карты.</p>
-    <div class="table-wrap">$service_group_access</div>
-    <h3>Объекты по группам</h3>
-    <div class="table-wrap">$service_groups_table</div>
+    <details class="table-disclosure">
+      <summary>
+        <span class="disclosure-heading">
+          <h3>Доступность по группам</h3>
+          <p class="hint">Для каждого квартала рассчитано время до ближайшего объекта группы и число объектов в 15-минутной пешеходной зоне. Социальная и коммерческая сферы вынесены на отдельные карты.</p>
+        </span>
+      </summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$service_group_access</div></div>
+    </details>
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h3>Объекты по группам</h3></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$service_groups_table</div></div>
+    </details>
   </section>
-  <section>
-    <h2>Сервисы по типам</h2>
-    <div class="table-wrap">$services_table</div>
+  <section class="table-section">
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h2>Сервисы по типам</h2></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$services_table</div></div>
+    </details>
   </section>
-  <section>
-    <h2>Полнота показателей</h2>
-    <div class="table-wrap">$completeness</div>
+  <section class="table-section">
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h2>Полнота показателей</h2></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$completeness</div></div>
+    </details>
   </section>
   <section>
     <h2>Выводы</h2>
@@ -2060,17 +2114,21 @@ code { background: #eef2f6; padding: 1px 4px; border-radius: 4px; }
     <h2>Источники</h2>
     $sources
   </section>
-  <section>
-    <h2>Единицы измерения</h2>
-    <div class="table-wrap">$units</div>
+  <section class="table-section">
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h2>Единицы измерения</h2></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$units</div></div>
+    </details>
   </section>
   <section>
     <h2>Ограничения и допущения</h2>
     $limitations
   </section>
-  <section>
-    <h2>Проверка результата</h2>
-    <div class="table-wrap">$validation</div>
+  <section class="table-section">
+    <details class="table-disclosure">
+      <summary><span class="disclosure-heading"><h2>Проверка результата</h2></span></summary>
+      <div class="table-disclosure-body"><div class="table-wrap">$validation</div></div>
+    </details>
   </section>
 </main>
 <footer>$footer</footer>
