@@ -580,40 +580,23 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
             },
         ).add_to(map_object)
 
-    for layer_name, filename, color, weight, fill_opacity in (
-        ("Водные объекты", "water.geojson", "#1f78b4", 0.8, 0.35),
-        ("Реки", "river.geojson", "#1f78b4", 1.5, 0.0),
-    ):
-        layer_path = PROCESSED_DIR / filename
-        if layer_path.exists():
-            layer = gpd.read_file(layer_path).to_crs(4326)
-            if len(layer):
-                folium.GeoJson(
-                    layer,
-                    name=layer_name,
-                    show=False,
-                    style_function=lambda feature, color=color, weight=weight, fill_opacity=fill_opacity: {
-                        "fillColor": color,
-                        "color": color,
-                        "weight": weight,
-                        "fillOpacity": fill_opacity,
-                    },
-                ).add_to(map_object)
-
-    popup = [
-        ("block_id", "Квартал"),
-        ("land_use", "Землепользование"),
-        ("population", "Население, чел."),
-        ("area_accessibility", "Зональная доступность, мин"),
-        ("fsi", "FSI"),
-        ("gsi", "GSI"),
-        ("l", "Этажность L"),
-        ("mxi", "MXI"),
-        ("osr", "OSR"),
-        ("spacematrix_morphotype", "Морфотип Spacematrix"),
-        ("strelka_morphotype", "Морфотип Strelka"),
-    ]
-    if scope == "social":
+    popup = [("block_id", "Квартал")]
+    if scope == "common":
+        popup.extend(
+            [
+                ("land_use", "Землепользование"),
+                ("population", "Население, чел."),
+                ("area_accessibility", "Зональная доступность, мин"),
+                ("fsi", "FSI"),
+                ("gsi", "GSI"),
+                ("l", "Этажность L"),
+                ("mxi", "MXI"),
+                ("osr", "OSR"),
+                ("spacematrix_morphotype", "Морфотип Spacematrix"),
+                ("strelka_morphotype", "Морфотип Strelka"),
+            ]
+        )
+    elif scope == "social":
         popup.extend(
             [
                 ("demand", "Спрос на школы, мест"),
@@ -735,21 +718,28 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
     service_diversity_field = f"services_{scope}_diversity"
     service_access_field = f"service_access_{scope}_min"
     service_count_15_field = f"{scope}_service_count_15min"
-    numeric_services = pd.to_numeric(
-        frame.get(service_count_field), errors="coerce"
-    ).dropna()
-    numeric_service_density = pd.to_numeric(
-        frame.get(service_density_field), errors="coerce"
-    ).dropna()
-    numeric_diversity = pd.to_numeric(
-        frame.get(service_diversity_field), errors="coerce"
-    ).dropna()
-    numeric_service_access = pd.to_numeric(
-        frame.get(service_access_field), errors="coerce"
-    ).dropna()
-    numeric_service_count_15 = pd.to_numeric(
-        frame.get(service_count_15_field), errors="coerce"
-    ).dropna()
+    if scope in ("social", "consumer"):
+        numeric_services = pd.to_numeric(
+            frame.get(service_count_field), errors="coerce"
+        ).dropna()
+        numeric_service_density = pd.to_numeric(
+            frame.get(service_density_field), errors="coerce"
+        ).dropna()
+        numeric_diversity = pd.to_numeric(
+            frame.get(service_diversity_field), errors="coerce"
+        ).dropna()
+        numeric_service_access = pd.to_numeric(
+            frame.get(service_access_field), errors="coerce"
+        ).dropna()
+        numeric_service_count_15 = pd.to_numeric(
+            frame.get(service_count_15_field), errors="coerce"
+        ).dropna()
+    else:
+        numeric_services = pd.Series(dtype=float)
+        numeric_service_density = pd.Series(dtype=float)
+        numeric_diversity = pd.Series(dtype=float)
+        numeric_service_access = pd.Series(dtype=float)
+        numeric_service_count_15 = pd.Series(dtype=float)
     numeric_area = pd.to_numeric(frame.get("area_accessibility"), errors="coerce").dropna()
     numeric_population = pd.to_numeric(frame.get("population"), errors="coerce").dropna()
     numeric_demand = pd.to_numeric(frame.get("demand"), errors="coerce").dropna()
@@ -851,10 +841,11 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    scope_label = (
-        "Социальные сервисы" if scope == "social" else "Коммерческие и бытовые сервисы"
-    )
-    if service_count_field in frame.columns and len(numeric_services):
+    scope_label = {
+        "social": "Социальные сервисы",
+        "consumer": "Коммерческие и бытовые сервисы",
+    }.get(scope, "Сервисы")
+    if scope in ("social", "consumer") and service_count_field in frame.columns and len(numeric_services):
         add_choropleth(
             service_count_field,
             scope_label,
@@ -876,7 +867,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    if service_density_field in frame.columns and len(numeric_service_density):
+    if scope in ("social", "consumer") and service_density_field in frame.columns and len(numeric_service_density):
         density_name = f"Плотность: {scope_label.lower()}"
         add_choropleth(
             service_density_field,
@@ -899,7 +890,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    if service_diversity_field in frame.columns and len(numeric_diversity):
+    if scope in ("social", "consumer") and service_diversity_field in frame.columns and len(numeric_diversity):
         diversity_name = f"Разнообразие: {scope_label.lower()}"
         add_choropleth(
             service_diversity_field,
@@ -922,7 +913,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    if service_access_field in frame.columns and len(numeric_service_access):
+    if scope in ("social", "consumer") and service_access_field in frame.columns and len(numeric_service_access):
         access_name = f"Доступность: {scope_label.lower()}"
         add_choropleth(
             service_access_field,
@@ -945,7 +936,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 scope == "consumer",
             )
         )
-    if service_count_15_field in frame.columns and len(numeric_service_count_15):
+    if scope in ("social", "consumer") and service_count_15_field in frame.columns and len(numeric_service_count_15):
         count15_name = f"В 15 минутах: {scope_label.lower()}"
         add_choropleth(
             service_count_15_field,
@@ -968,7 +959,13 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    group_layers = SOCIAL_GROUP_LAYERS if scope == "social" else CONSUMER_GROUP_LAYERS
+    group_layers = (
+        SOCIAL_GROUP_LAYERS
+        if scope == "social"
+        else CONSUMER_GROUP_LAYERS
+        if scope == "consumer"
+        else []
+    )
     for field, name, label, colors in group_layers:
         values = pd.to_numeric(frame.get(field), errors="coerce").dropna()
         if not len(values):
@@ -982,7 +979,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    if "area_accessibility" in frame.columns and len(numeric_area):
+    if scope == "common" and "area_accessibility" in frame.columns and len(numeric_area):
         add_choropleth(
             "area_accessibility",
             "Зональная доступность",
@@ -999,7 +996,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    if "population" in frame.columns and len(numeric_population):
+    if scope == "common" and "population" in frame.columns and len(numeric_population):
         add_choropleth(
             "population",
             "Население",
@@ -1033,7 +1030,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    if "fsi" in frame.columns and len(numeric_fsi):
+    if scope == "common" and "fsi" in frame.columns and len(numeric_fsi):
         add_choropleth(
             "fsi",
             "Плотность FSI",
@@ -1050,7 +1047,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    if "gsi" in frame.columns and len(numeric_gsi):
+    if scope == "common" and "gsi" in frame.columns and len(numeric_gsi):
         add_choropleth(
             "gsi",
             "Плотность GSI",
@@ -1067,7 +1064,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    if "l" in frame.columns and len(numeric_l):
+    if scope == "common" and "l" in frame.columns and len(numeric_l):
         add_choropleth(
             "l",
             "Этажность L",
@@ -1084,7 +1081,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    if "mxi" in frame.columns and len(numeric_mxi):
+    if scope == "common" and "mxi" in frame.columns and len(numeric_mxi):
         add_choropleth(
             "mxi",
             "Смешанность MXI",
@@ -1101,7 +1098,7 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
                 False,
             )
         )
-    if osr_min is not None and osr_max is not None:
+    if scope == "common" and osr_min is not None and osr_max is not None:
         add_choropleth(
             "__osr_log",
             "OSR",
@@ -1181,29 +1178,10 @@ def build_map(frame, schools_gdf, kindergartens_gdf=None, scope="social", map_id
         legend_layers.append((name, layer.get_name()))
         legends.append(legend_card(name, categorical_legend(title, colors_by_value), show))
 
-    add_categorical("land_use", "Землепользование", "Землепользование")
-    add_categorical("spacematrix_morphotype", "Морфотипы Spacematrix", "Морфотипы Spacematrix")
-    add_categorical("strelka_morphotype", "Морфотипы Strelka", "Морфотипы Strelka")
-
-    for layer_name, filename, color, weight, dash_array in (
-        ("Дороги", "roads.geojson", "#555555", 0.9, None),
-        ("Железные дороги", "railways.geojson", "#333333", 1.3, "5,4"),
-    ):
-        layer_path = PROCESSED_DIR / filename
-        if layer_path.exists():
-            layer = gpd.read_file(layer_path).to_crs(4326)
-            if len(layer):
-                folium.GeoJson(
-                    layer,
-                    name=layer_name,
-                    show=False,
-                    style_function=lambda feature, color=color, weight=weight, dash_array=dash_array: {
-                        "color": color,
-                        "weight": weight,
-                        "opacity": 0.65,
-                        "dashArray": dash_array,
-                    },
-                ).add_to(map_object)
+    if scope == "common":
+        add_categorical("land_use", "Землепользование", "Землепользование", show=True)
+        add_categorical("spacematrix_morphotype", "Морфотипы Spacematrix", "Морфотипы Spacematrix")
+        add_categorical("strelka_morphotype", "Морфотипы Strelka", "Морфотипы Strelka")
 
     if scope == "social":
         schools_group = folium.FeatureGroup(name="Школы", show=True)
@@ -1323,6 +1301,9 @@ def main():
     )
     consumer_map_html, consumer_legends_html = build_map(
         frame, None, None, scope="consumer", map_id="consumer"
+    )
+    common_map_html, common_legends_html = build_map(
+        frame, None, None, scope="common", map_id="common"
     )
     charts_html = make_charts(frame)
 
@@ -1738,20 +1719,20 @@ def main():
     completeness = pd.DataFrame(
         [
             {"Показатель": "Матрица доступности, минуты", "В ноутбуке": "раздел 10", "В дашборде": "KPI и график распределения"},
-            {"Показатель": "Население, площадь застройки, этажность, жилые здания", "В ноутбуке": "раздел 7", "В дашборде": "KPI, карта населения, полная таблица"},
+            {"Показатель": "Население, площадь застройки, этажность, жилые здания", "В ноутбуке": "раздел 7", "В дашборде": "KPI, карта общих показателей, полная таблица"},
             {"Показатель": "Школы: capacity, count", "В ноутбуке": "раздел 8", "В дашборде": "KPI, слой школ на карте, таблица школ, полная таблица"},
             {"Показатель": "Детские сады: capacity, count", "В ноутбуке": "раздел 8", "В дашборде": "KPI, слой детсадов, таблица детсадов, обеспеченность"},
-            {"Показатель": "Сервисы: count, density, diversity по социальной и коммерческой сферам", "В ноутбуке": "раздел 8", "В дашборде": "KPI, две карты, графики, таблицы по типам и группам"},
-            {"Показатель": "Доступность сервисов по группам: nearest_min, count_15min", "В ноутбуке": "раздел 8", "В дашборде": "график, таблица, слои групп на двух картах"},
-            {"Показатель": "Землепользование: land_use, share", "В ноутбуке": "раздел 5", "В дашборде": "карта, график населения, сводка, полная таблица"},
-            {"Показатель": "Плотность: site_area, fsi, gsi, mxi, l, osr, share_living, share_non_living", "В ноутбуке": "раздел 11", "В дашборде": "карты FSI, GSI, MXI, L, OSR, график FSI/GSI, полная таблица"},
-            {"Показатель": "Spacematrix: cluster, morphotype", "В ноутбуке": "раздел 11", "В дашборде": "карта, график, таблица кластеров, полная таблица"},
-            {"Показатель": "Strelka: morphotype", "В ноутбуке": "раздел 11", "В дашборде": "карта, полная таблица"},
+            {"Показатель": "Сервисы: count, density, diversity по социальной и коммерческой сферам", "В ноутбуке": "раздел 8", "В дашборде": "KPI, карты сервисов, графики, таблицы по типам и группам"},
+            {"Показатель": "Доступность сервисов по группам: nearest_min, count_15min", "В ноутбуке": "раздел 8", "В дашборде": "график, таблица, слои групп на картах сервисов"},
+            {"Показатель": "Землепользование: land_use, share", "В ноутбуке": "раздел 5", "В дашборде": "карта общих показателей, график населения, сводка, полная таблица"},
+            {"Показатель": "Плотность: site_area, fsi, gsi, mxi, l, osr, share_living, share_non_living", "В ноутбуке": "раздел 11", "В дашборде": "карта общих показателей, график FSI/GSI, полная таблица"},
+            {"Показатель": "Spacematrix: cluster, morphotype", "В ноутбуке": "раздел 11", "В дашборде": "карта общих показателей, график, таблица кластеров, полная таблица"},
+            {"Показатель": "Strelka: morphotype", "В ноутбуке": "раздел 11", "В дашборде": "карта общих показателей, полная таблица"},
             {"Показатель": "Обеспеченность: demand, capacity, demand_left, demand_within, demand_without, capacity_left, capacity_within, capacity_without, provision_strong, provision_weak", "В ноутбуке": "раздел 11", "В дашборде": "KPI, карты сильной/слабой обеспеченности и спроса, таблица, график"},
             {"Показатель": "Связи обеспечения: source, target, value", "В ноутбуке": "раздел 11", "В дашборде": "таблица связей"},
-            {"Показатель": "Зональная доступность: area_accessibility", "В ноутбуке": "раздел 11", "В дашборде": "KPI, карта, график, полная таблица"},
-            {"Показатель": "Контекст: дороги, железные дороги, реки, вода", "В ноутбуке": "раздел 3", "В дашборде": "переключаемые слои карты"},
-            {"Показатель": "Итоговый слой blocks_metrics", "В ноутбуке": "раздел 12", "В дашборде": "полная таблица и карта"},
+            {"Показатель": "Зональная доступность: area_accessibility", "В ноутбуке": "раздел 11", "В дашборде": "KPI, карта общих показателей, график, полная таблица"},
+            {"Показатель": "Общие показатели кварталов: землепользование, население, плотность, этажность, смешанность, морфотипы, зональная доступность", "В ноутбуке": "разделы 5, 7, 11", "В дашборде": "отдельная карта общих показателей"},
+            {"Показатель": "Итоговый слой blocks_metrics", "В ноутбуке": "раздел 12", "В дашборде": "полная таблица и карты"},
         ]
     )
     completeness_table = render_table(completeness)
@@ -1778,7 +1759,7 @@ def main():
         f"Детских садов: {kindergartens_count:.0f}; суммарная вместимость — {fmt(int(round(kindergarten_capacity)))} мест; средняя сильная обеспеченность — {fmt(kindergarten_mean_provision, 3)}, покрытие спроса — {fmt(kindergarten_weighted_provision, 3)}.",
         f"Средняя сильная обеспеченность школами по кварталам — {fmt(mean_provision, 3)}; по населению покрыто {fmt(weighted_provision, 3)} спроса. В {zero_provision_blocks} из {demand_blocks} кварталов со спросом покрытия в 15 минут нет.",
         f"В папке «сервисы» учтено {fmt(int(services_total))} объектов: {fmt(services_social_total)} социальных и {fmt(services_consumer_total)} коммерческих и бытовых; остальные {fmt(max(int(round(services_total - services_social_total - services_consumer_total)), 0))} относятся к инфраструктуре, природе, промышленности, специальным и прочим группам. Для каждой группы рассчитаны время до ближайшего объекта и число объектов в 15 минутах.",
-        f"Медиана времени до ближайшего социального объекта — {fmt(social_access_median, 1)} мин, до коммерческого — {fmt(consumer_access_median, 1)} мин; социальная и коммерческая сферы показаны на отдельных картах.",
+        f"Медиана времени до ближайшего социального объекта — {fmt(social_access_median, 1)} мин, до коммерческого — {fmt(consumer_access_median, 1)} мин; социальная и коммерческая сферы показаны на отдельных картах, общие показатели кварталов — на третьей.",
         f"Землепользование назначено по площадному наложению landuse.geojson; без категории осталось {land_use_missing} кварталов, без морфотипа — {morph_missing}.",
         f"Медианная зональная доступность — {fmt(area_median, 1)} мин. Значения выше 100 минут относятся к периферийным кварталам.",
     ]
@@ -1820,7 +1801,7 @@ def main():
         f"У {share_gt_one} кварталов доля функциональной зоны больше 1 — это признак наложения зон, значение требует проверки.",
         "Считается только пешеходная доступность, 5 км/ч. Автомобиль и общественный транспорт не моделируются.",
         "Доступность сервисов по группам — время до ближайшего объекта группы по пешеходному графу; порог 15 минут выбран для сопоставимости с обеспеченностью.",
-        "На карты вынесены социальная и коммерческая сферы; инфраструктура, промышленность, природа, специальные и прочие группы остаются в таблицах.",
+        "На картах сервисов показаны социальная и коммерческая сферы; инфраструктура, промышленность, природа, специальные и прочие группы остаются в таблицах. Общие показатели кварталов вынесены на отдельную карту.",
         "Если несколько объектов группы привязаны к одному узлу графа, они учитываются в count_15min по отдельности, но время у них одинаковое.",
         "Время в пути считается между ближайшими узлами дорожного графа; у кварталов, привязанных к одному узлу, оно может быть нулевым.",
         "Средняя обеспеченность по кварталам и покрытие спроса по населению — разные показатели: первый усредняет кварталы, второй взвешивает людей.",
@@ -1980,7 +1961,7 @@ code { background: #eef2f6; padding: 1px 4px; border-radius: 4px; }
   </section>
   <section>
     <h2>Карта социальной инфраструктуры</h2>
-    <p class="hint">Образование, здравоохранение, социальная сфера, культура и рекреация. Слои переключаются в правом верхнем углу карты; справа показаны легенды только включённых слоёв.</p>
+    <p class="hint">Образование, здравоохранение, социальная сфера, культура и рекреация, а также школы и детские сады. Плотность, этажность, морфотипы и другие общие показатели вынесены на отдельную карту.</p>
     <div class="map-layout">
       <div class="map">$map_social</div>
       <aside class="legend-column">
@@ -1999,6 +1980,18 @@ code { background: #eef2f6; padding: 1px 4px; border-radius: 4px; }
         <h3>Легенда</h3>
         <p class="hint">Включите слой в правом верхнем углу карты — его легенда появится здесь.</p>
         <div class="legend-grid">$legends_consumer</div>
+      </aside>
+    </div>
+  </section>
+  <section>
+    <h2>Карта общих показателей кварталов</h2>
+    <p class="hint">Плотность, этажность, смешанность, морфотипы, землепользование, население и зональная доступность. Эти слои не дублируются на картах сервисов.</p>
+    <div class="map-layout">
+      <div class="map">$map_common</div>
+      <aside class="legend-column">
+        <h3>Легенда</h3>
+        <p class="hint">Включите слой в правом верхнем углу карты — его легенда появится здесь.</p>
+        <div class="legend-grid">$legends_common</div>
       </aside>
     </div>
   </section>
@@ -2112,7 +2105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     generated = pd.Timestamp.now().strftime("%Y-%m-%d %H:%M")
     page = template.safe_substitute(
         title="Ивангородское городское поселение: BlocksNet-дашборд",
-        subtitle="Учебный расчёт по готовым векторным слоям. Две карты — социальная и коммерческая сфера, графики и таблицы в одном HTML-файле.",
+        subtitle="Учебный расчёт по готовым векторным слоям. Три карты — социальная и коммерческая сфера, общие показатели кварталов, графики и таблицы в одном HTML-файле.",
         blocks_count=str(len(frame)),
         matrix_size=str(len(frame)),
         kpi=kpi_html,
@@ -2120,6 +2113,8 @@ document.addEventListener("DOMContentLoaded", function () {
         legends_social=social_legends_html,
         map_consumer=consumer_map_html,
         legends_consumer=consumer_legends_html,
+        map_common=common_map_html,
+        legends_common=common_legends_html,
         charts=charts_html,
         table=full_table,
         provision_table=provision_table,
